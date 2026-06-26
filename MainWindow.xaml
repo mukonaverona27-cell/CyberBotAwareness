@@ -1,0 +1,86 @@
+﻿<Window x:Class="demo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:demo"
+        mc:Ignorable="d"
+        Background="DeepPink"
+        Title="Cybersecurity Awareness Chatbot" Height="550" Width="900">
+
+	<Grid>
+		<!-- HOME GRID -->
+		<Grid x:Name="home_grid" Visibility="Visible">
+			<Image Source="/logo.png" Height="200" Width="300" Margin="0,0,0,200"/>
+			<TextBlock Text="Welcome to Cybersecurity Awareness Chatbot"
+                       Height="30" Width="400" Background="WHITE"
+                       TextAlignment="Center" Margin="0,30,0,0"
+                       FontFamily="Arial Rounded MT Bold" FontSize="14"/>
+			<Button Height="40" Width="300" Margin="0,200,0,0"
+                    Content="Proceed" Click="proceed"/>
+		</Grid>
+
+		<!-- USERNAME GRID -->
+		<Grid x:Name="username_grid" Visibility="Hidden">
+			<Image Source="/logo.png" Height="200" Width="300" Margin="0,0,0,200"/>
+			<TextBlock Text="Enter your username to continue"
+                       Height="30" Width="300" TextAlignment="Center"
+                       Margin="0,30,0,0" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
+			<TextBox Height="40" Width="300" TextAlignment="Center"
+                     Margin="0,100,0,0" FontFamily="Arial Rounded MT Bold"
+                     x:Name="usernames_input"/>
+			<TextBlock Text="Please enter username to continue..."
+                       Height="20" Width="300" TextAlignment="Center"
+                       Margin="0,180,0,0" Foreground="DeepPink"
+                       FontFamily="Arial Rounded MT Bold"/>
+			<Button Height="40" Width="300" Margin="0,250,0,0"
+                    Content="Submit Username" Foreground="DeepPink"
+                    Click="submit_name"/>
+		</Grid>
+
+		<!-- MAIN CHAT GRID -->
+		<Grid x:Name="chat_grid" Visibility="Hidden">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+
+			<!-- Top Button Panel -->
+			<StackPanel Grid.Row="0" Orientation="Horizontal"
+                        HorizontalAlignment="Center" Margin="0,5">
+				<Button Content="📋 Tasks" Height="35" Width="100"
+                        Margin="5" Click="OpenTaskManager"
+                        Background="LightBlue" FontWeight="Bold"/>
+				<Button Content="🎯 Quiz" Height="35" Width="100"
+                        Margin="5" Click="OpenQuizManager"
+                        Background="LightGreen" FontWeight="Bold"/>
+				<Button Content="📊 Activity Log" Height="35" Width="120"
+                        Margin="5" Click="ShowActivityLog"
+                        Background="LightGoldenrodYellow" FontWeight="Bold"/>
+				<Button Content="ℹ️ Help" Height="35" Width="100"
+                        Margin="5" Click="ShowHelp"
+                        Background="LightGray" FontWeight="Bold"/>
+			</StackPanel>
+
+			<!-- Chat ListView -->
+			<ListView Grid.Row="1" x:Name="chats" Height="Auto"
+                      Margin="10,5,10,5"/>
+
+			<!-- Bottom Input Panel -->
+			<Grid Grid.Row="2" Margin="10,0,10,10">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="Auto"/>
+				</Grid.ColumnDefinitions>
+				<TextBox Grid.Column="0" x:Name="question" Height="50"
+                         VerticalContentAlignment="Center"
+                         TextWrapping="Wrap" AcceptsReturn="True"/>
+				<Button Grid.Column="1" Height="50" Width="100"
+                        Content="Send" Margin="5,0,0,0"
+                        Click="send" Background="DeepPink"
+                        Foreground="White" FontWeight="Bold"/>
+			</Grid>
+		</Grid>
+	</Grid>
+</Window>

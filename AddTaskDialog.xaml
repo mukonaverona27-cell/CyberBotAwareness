@@ -1,0 +1,42 @@
+<Window x:Class="demo.AddTaskDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="Add New Task" Height="350" Width="450"
+        WindowStartupLocation="CenterScreen"
+        Background="#F0F8FF">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Add Cybersecurity Task" 
+                   FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+
+        <Label Grid.Row="1" Content="Task Title:" FontWeight="Bold"/>
+        <TextBox Grid.Row="2" x:Name="titleBox" Height="30" Margin="0,0,0,10"/>
+
+        <Label Grid.Row="3" Content="Description (Optional):" FontWeight="Bold"/>
+        <TextBox Grid.Row="4" x:Name="descBox" Height="60" TextWrapping="Wrap" 
+                 AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Margin="0,0,0,10"/>
+
+        <CheckBox Grid.Row="5" x:Name="reminderCheck" Content="Set Reminder" 
+                  Margin="0,0,0,10" Checked="ReminderChecked" Unchecked="ReminderUnchecked"/>
+
+        <DatePicker Grid.Row="6" x:Name="reminderDate" Visibility="Collapsed" 
+                    Margin="0,0,0,10"/>
+
+        <StackPanel Grid.Row="7" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+            <Button Content="Cancel" Height="30" Width="80" Margin="5" Click="Cancel_Click"/>
+            <Button Content="Add Task" Height="30" Width="80" Margin="5" 
+                    Click="Add_Click" Background="LightGreen" FontWeight="Bold"/>
+        </StackPanel>
+    </Grid>
+</Window>
